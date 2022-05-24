@@ -10,14 +10,14 @@ range(3, 4); // [3]
 range(7, 6); // []
 ***********************************************************************/
 function range(start, end) {
-  let arr = [];
-  if (end < start) {
+  if (end <= start) {
     return [];
   }
-  return arr.push([start, ...range(start + 1, end)])
+
+  return [start, ...range(start + 1, end)]
 }
 
-
+console.log(range(1, 5)); // [1, 2, 3, 4])
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
