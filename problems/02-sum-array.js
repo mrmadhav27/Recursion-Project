@@ -13,7 +13,7 @@ sumArray([1, 2, 3, 4, 5]); // 15
 // your code here
 
 const sumArray = nums => {
-  if (nums.length === 0) return 0
+  if (nums.length === 0) return;
   let lastElement = nums.pop()
   return lastElement + sumArray(nums)
 }
