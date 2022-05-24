@@ -18,13 +18,18 @@ fibonacci(3); // 2
 fibonacci(4); // 3
 fibonacci(10); // 55
 ***********************************************************************/
+                    //3
+const fibonacci = (num) => {
+  // base case
+  if (num === 1 || num === 2) return 1;
 
-// your code here
-  
+  // recursive case + step
+  return fibonacci(num -1) + fibonacci(num-2);
+}
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = fibonacci;
 } catch (e) {
   module.exports = null;
 }
-  
