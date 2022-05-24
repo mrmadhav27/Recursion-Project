@@ -21,9 +21,34 @@ sort([0, 1, -3]); // [-3, 0, 1]
 sort([]); // []
 ***********************************************************************/
 
+// const sort = (nums, sorted = []) => {
+//     if (!nums.length) return sorted;
+
+//     let smallInedex = nums.indexOf(Math.min(...nums));
+//     [nums[smallInedex], nums[0]] = [nums[0], nums[smallInedex]];
+
+//     let smallest = nums.shift();
+//     sorted.push(smallest);
+
+//     return sort(nums, sorted);
+// }
+
+
+
 function sort(nums, sorted = []) {
-  // your code here
+  if (!nums.length) return sorted; //base case
+
+  let smallest = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] < nums[smallest]) {
+      smallest = i;
+    }
+  }
+  sorted.push(nums[smallest]);
+  nums.splice(smallest, 1);
+  return sort(nums, sorted);
 }
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
