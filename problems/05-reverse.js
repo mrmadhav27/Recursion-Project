@@ -12,7 +12,16 @@ reverse("id"); // "di"
 reverse(""); // ""
 ***********************************************************************/
 
-// your code here
+const reverse = (string) => {
+   if (!string.length) return string; //base case
+
+  // let first = string[0];
+  // let recursive = reverse(string.slice(1))
+
+  // return  recursive + first
+return reverse(string.slice(1)) + string[0]
+
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
