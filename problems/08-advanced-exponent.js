@@ -40,10 +40,22 @@ times `advancedExponent` is being recursively called.
 ***********************************************************************/
 
 
-function advancedExponent(b, n) {
+function advancedExponent(num, power) {
   // your code here
+  if (power === 1) return num;
+  if (power === 0) return 1; // base cases
+  if (power % 2 === 0) {
+    let even = advancedExponent(num, power / 2)
+    return even * even
+  } else {
+    let odd = advancedExponent(num, (power - 1) / 2)
+    return num * odd * odd
+  }
 }
 
+
+
+// console.log(advancedExponent(2, 13)); // 4096
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
