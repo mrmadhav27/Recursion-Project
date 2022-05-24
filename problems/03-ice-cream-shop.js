@@ -13,7 +13,14 @@ iceCreamShop([], 'honey lavender'); // false
 ***********************************************************************/
 
 
-// your code here
+const iceCreamShop = (flavors, favorite) =>{
+  if (!flavors.length) return false;
+  if (favorite === flavors.pop()) return true;
+  return iceCreamShop(flavors,favorite)
+}
+
+
+
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
