@@ -12,8 +12,35 @@ addToTwelve([1, 12, 4, 7, 6]); // false
 addToTwelve([1]); // false
 ***********************************************************************/
 
-// your code here
+// your code here'
 
+// const addToTwelve = (arr) => {
+//   if (arr.length < 2) return false
+//   if (arr[0] + arr[1] !== 12) {
+//     arr.shift()
+//     return addToTwelve(arr)
+//   } else return true
+// }
+
+// const addToTwelve = (arr) => {
+//   if (arr.length < 2) return false
+//   if (arr[arr.length - 1] + arr[arr.length - 2] !== 12) {
+//     arr.pop()
+//     return addToTwelve(arr)
+//   } else return true
+// }
+
+// const addToTwelve = arr => {
+//   if (arr.length < 2) return false
+//   if (arr.pop() + arr[arr.length - 1] !== 12) return addToTwelve(arr)
+//   else return true
+// }
+
+const addToTwelve = arr => {
+  if (arr.length < 2) return false
+  if (arr.pop() + arr[arr.length - 1] === 12) return true
+  return addToTwelve(arr)
+}
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = addToTwelve;
