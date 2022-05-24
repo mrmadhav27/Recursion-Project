@@ -1,7 +1,7 @@
 /***********************************************************************
 Write a function called `subsets` that will return all subsets of an array.
 
-Examples: 
+Examples:
 
 subsets([]) // [[]]
 subsets([1]) // [[], [1]]
@@ -14,7 +14,48 @@ Hint: For subsets([1, 2, 3]), there are two kinds of subsets:
      subset that is the same, except it also does contain 3.
 ***********************************************************************/
 
-// your code here
+// const subsets = (arr) => {
+//   if (!arr.length) return [[]];
+
+//   //look at first ele in the arr
+//   let firstEl = arr.shift();
+
+//   // define all sets exclude
+//   let setsWithoutEle = subsets(arr.slice());
+
+//   //define all that includes
+//   let setsWithEl = subsets(arr.slice()).map(subset => [firstEl, ...subset]);
+
+//   // return the combination of both
+//   return [...setsWithoutEle, ...setsWithEl];
+// }
+
+const subsets = arr => {
+  let subArr = [];
+  createSubArr([], 0);
+
+  function createSubArr (ele, index) {
+    subArr.push(ele);
+    for (let i = index; i < arr.length; i++) {
+      createSubArr([...ele, arr[i]], i + 1)
+    }
+  }
+  return subArr;
+}
+
+// not working
+// const subsets = arr => {
+//   // let newArr = [[]];
+//   if (!arr.length) return [[]];
+
+//   let newArr = [];
+//   for (let i =0; i < arr.length; i++) {
+//     newArr.push([arr.shift()])
+//     return subsets(newArr)
+//   }
+// }
+
+console.log(subsets([1])) // [[], [1]]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
