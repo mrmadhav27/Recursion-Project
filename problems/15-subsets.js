@@ -30,32 +30,29 @@ Hint: For subsets([1, 2, 3]), there are two kinds of subsets:
 //   return [...setsWithoutEle, ...setsWithEl];
 // }
 
-const subsets = arr => {
-  let subArr = [];
-  createSubArr([], 0);
-
-  function createSubArr (ele, index) {
-    subArr.push(ele);
-    for (let i = index; i < arr.length; i++) {
-      createSubArr([...ele, arr[i]], i + 1)
-    }
-  }
-  return subArr;
-}
-
-// not working
 // const subsets = arr => {
-//   // let newArr = [[]];
-//   if (!arr.length) return [[]];
+//   let subArr = [];
+//   createSubArr([], 0);
 
-//   let newArr = [];
-//   for (let i =0; i < arr.length; i++) {
-//     newArr.push([arr.shift()])
-//     return subsets(newArr)
+//   function createSubArr (ele, index) {
+//     subArr.push(ele);
+//     for (let i = index; i < arr.length; i++) {
+//       createSubArr([...ele, arr[i]], i + 1)
+//     }
 //   }
+//   return subArr;
 // }
 
-console.log(subsets([1])) // [[], [1]]
+// not working
+const subsets = (arr, newArr = [[]]) => {
+  if (!arr.length) return newArr;
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push([arr.shift()])
+    return subsets(arr, newArr)
+  }
+}
+
+// console.log(subsets([1])) // [[], [1]]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
