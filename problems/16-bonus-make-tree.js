@@ -63,10 +63,41 @@ The call above should return the tree below:
 
 ***********************************************************************/
 
+// const makeTree = (categories, parent) => {
+// your code here
+
+// if (parent === null) parent = {}
+// if (!categories.length) return parent
+// if (parent[categories[0].id] === undefined) {
+//   parent[categories.shift().id] = {}
+// }
+// return makeTree(categories, parent)
+// };
+
 const makeTree = (categories, parent) => {
   // your code here
+
+  if (parent === null) parent = { parent[categories[0].id]}
+  if (!categories.length) return parent
+  if (parent[categories[0].id] !== undefined) {
+
+  } else
 };
 
+const categories2 = [
+  { id: 'animals', 'parent': null },
+  { id: 'mammals', 'parent': 'animals' },
+  { id: 'cats', 'parent': 'mammals' },
+  { id: 'dogs', 'parent': 'mammals' },
+  { id: 'chihuahua', 'parent': 'dogs' },
+  { id: 'labrador', 'parent': 'dogs' },
+  { id: 'persian', 'parent': 'cats' },
+  { id: 'siamese', 'parent': 'cats' }
+];
+
+const tree2 = makeTree(categories2, null);
+
+console.log(tree2)
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = makeTree;
