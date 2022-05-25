@@ -62,9 +62,41 @@ The call above should return the tree below:
 }
 
 ***********************************************************************/
+const makeTree = (categories, parent) => {
 
-// const makeTree = (categories, parent) => {
-// your code here
+    //initialize empty obj
+    let resultTree = {};
+    // let parentArr = categories.filter((category) => {
+    //    return category.parent === parent;
+    // })
+
+  //search catagories, to see if it id matches the parent property
+        for (let i = 0; i < categories.length; i++) {
+            let category = categories[i];
+
+            if (category.parent === parent) {
+                resultTree[category.id] = makeTree(categories, category.id)
+              }
+          }
+          //return result
+        return resultTree;
+}
+
+      // if (!categories.length) return resultTree;
+
+      // // if (parent === null) parent = {};
+
+      // let category = categories.shift();
+
+      // if (category.parent === parent) {
+
+      //   resultTree[category.id] = makeTree(categories, category.id);
+      // }
+
+      // return resultTree;
+
+      // const makeTree = (categories, parent) => {
+        // your code here
 
 // if (parent === null) parent = {}
 // if (!categories.length) return parent
@@ -74,30 +106,29 @@ The call above should return the tree below:
 // return makeTree(categories, parent)
 // };
 
-const makeTree = (categories, parent) => {
-  // your code here
 
-  if (parent === null) parent = { parent[categories[0].id]}
-  if (!categories.length) return parent
-  if (parent[categories[0].id] !== undefined) {
+// const categories1 = [
+//   { id: 'animals', 'parent': null },
+//   { id: 'mammals', 'parent': 'animals' }
+// ];
 
-  } else
-};
+// const tree1 = makeTree(categories1, null);
+// console.log(tree1);
 
-const categories2 = [
-  { id: 'animals', 'parent': null },
-  { id: 'mammals', 'parent': 'animals' },
-  { id: 'cats', 'parent': 'mammals' },
-  { id: 'dogs', 'parent': 'mammals' },
-  { id: 'chihuahua', 'parent': 'dogs' },
-  { id: 'labrador', 'parent': 'dogs' },
-  { id: 'persian', 'parent': 'cats' },
-  { id: 'siamese', 'parent': 'cats' }
-];
+// const categories2 = [
+//     { id: 'animals', 'parent': null },
+//     { id: 'mammals', 'parent': 'animals' },
+//     { id: 'cats', 'parent': 'mammals' },
+//     { id: 'dogs', 'parent': 'mammals' },
+//     { id: 'chihuahua', 'parent': 'dogs' },
+//     { id: 'labrador', 'parent': 'dogs' },
+//     { id: 'persian', 'parent': 'cats' },
+//     { id: 'siamese', 'parent': 'cats' }
+// ];
+// const tree2 = makeTree(categories2, null);
+// console.log(tree2);
 
-const tree2 = makeTree(categories2, null);
 
-console.log(tree2)
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = makeTree;
